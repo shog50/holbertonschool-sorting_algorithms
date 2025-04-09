@@ -1,4 +1,4 @@
-O(n)    # Best case: Already sorted array (requires one pass to verify)
-O(n^2)  # Average case: Random order
-O(n^2)  # Worst case: Reverse order
+O(n)
+O(n^2)
+O(n^2)
 
