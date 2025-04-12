@@ -1,9 +1,9 @@
 #include "sort.h"
 
 /**
- * swap - Swaps two integers
- * @a: pointer to first integer
- * @b: pointer to second integer
+ * swap - Swaps two integers in an array
+ * @a: First integer
+ * @b: Second integer
  */
 void swap(int *a, int *b)
 {
@@ -18,12 +18,12 @@ temp = *a;
 }
 
 /**
- * lomuto_partition - Lomuto partition scheme
- * @array: array to sort
- * @low: starting index
- * @high: ending index
- * @size: size of array
- * Return: final pivot position
+ * lomuto_partition - Lomuto partition scheme for quicksort
+ * @array: Array to sort
+ * @low: Start index
+ * @high: End index
+ * @size: Size of array
+ * Return: Partition index
  */
 int lomuto_partition(int *array, int low, int high, size_t size)
 {
@@ -49,11 +49,11 @@ return (i + 1);
 }
 
 /**
- * quick_sort_rec - Recursive quick sort helper
- * @array: array to sort
- * @low: low index
- * @high: high index
- * @size: array size
+ * quick_sort_rec - Recursive helper for quicksort
+ * @array: Array to sort
+ * @low: Start index
+ * @high: End index
+ * @size: Size of array
  */
 void quick_sort_rec(int *array, int low, int high, size_t size)
 {
@@ -68,13 +68,13 @@ quick_sort_rec(array, pi + 1, high, size);
 }
 
 /**
- * quick_sort - Sorts an array using Quick Sort
- * @array: array to sort
- * @size: array size
+ * quick_sort - Sorts array using quicksort
+ * @array: Array to sort
+ * @size: Size of array
  */
 void quick_sort(int *array, size_t size)
 {
-if (!array || size < 2)
+if (array == NULL || size < 2)
 return;
 
 quick_sort_rec(array, 0, size - 1, size);
