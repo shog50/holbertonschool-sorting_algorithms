@@ -9,7 +9,7 @@ void swap(int *a, int *b)
 {
 int temp;
 
-if (a != b)
+if (a != b && *a != *b)
 {
 temp = *a;
 *a = *b;
@@ -35,21 +35,29 @@ for (j = low; j < high; j++)
 {
 if (array[j] < pivot)
 {
+if (i != j && array[i] != array[j])
+{
 swap(&array[i], &array[j]);
-if (i != j)
 print_array(array, size);
+}
+else
+swap(&array[i], &array[j]);
 i++;
 }
 }
+if (i != high && array[i] != array[high])
+{
 swap(&array[i], &array[high]);
-if (i != high)
 print_array(array, size);
+}
+else
+swap(&array[i], &array[high]);
 return (i);
 }
 
 /**
- * quick_sort_recursive - Sorts array recursively using quicksort
- * @array: The array to sort
+ * quick_sort_recursive - Recursive helper for Quick Sort
+ * @array: Array
  * @low: Start index
  * @high: End index
  * @size: Array size
@@ -67,7 +75,7 @@ quick_sort_recursive(array, pivot + 1, high, size);
 }
 
 /**
- * quick_sort - Sorts an array using the Quick sort algorithm
+ * quick_sort - Sort array using Quick Sort algorithm
  * @array: The array to sort
  * @size: Array size
  */
